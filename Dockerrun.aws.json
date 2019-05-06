@@ -18,7 +18,7 @@
 		{
 			"name": "worker",
 			"image": "liondancer/multi-worker",
-			"hostname": "worker",
+			"hostname": "workesr",
 			"essential": false,
 			"memory": 128
 		},
@@ -38,6 +38,6 @@
 				"client",
 				"server"
 			]
-		},
+		}
 	]
 }
