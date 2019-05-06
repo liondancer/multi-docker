@@ -3,23 +3,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t bradfordli/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t liondancer/react-test -f ./client/Dockerfile.dev ./client
 
 # Test running section
 script:
-  - docker run bradfordli/react-test npm run test --coverage --passWithNoTests
+  - docker run liondancer/react-test npm run test --coverage --passWithNoTests
 
 
 # build production versions and push to docker hub as well
 after_success:
-  - docker build -t bradfordli/multi-client ./client
-  - docker build -t bradfordli/multi-nginx ./nginx
-  - docker build -t bradfordli/multi-server ./server
-  - docker build -t bradfordli/multi-worker ./worker
+  - docker build -t liondancer/multi-client ./client
+  - docker build -t liondancer/multi-nginx ./nginx
+  - docker build -t liondancer/multi-server ./server
+  - docker build -t liondancer/multi-worker ./worker
   # Login to DOcker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images to docker hub
-  - docker push bradfordli/multi-client
-  - docker push bradfordli/multi-nginx
-  - docker push bradfordli/multi-server
-  - docker push bradfordli/multi-worker
+  - docker push liondancer/multi-client
+  - docker push liondancer/multi-nginx
+  - docker push liondancer/multi-server
+  - docker push liondancer/multi-worker
