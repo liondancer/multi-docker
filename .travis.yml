@@ -7,7 +7,7 @@ before_install:
 
 # Test running section
 script:
-  - docker run bradfordli/react-test npm test
+  - docker run bradfordli/react-test npm run test
 
 
 # build production versions and push to docker hub as well
