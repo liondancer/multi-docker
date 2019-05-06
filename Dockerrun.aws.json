@@ -1,0 +1,35 @@
+{
+	"AWSEBDockerrunVZersion": 2,
+	"containerDefinitions": [
+		{
+			"name": "client",
+			"image": "liondancer/multi-client",
+			"hostname": "client",
+			"essential": false
+		},
+		{
+			"name": "server",
+			"image": "liondancer/multi-server",
+			"hostname": "api",
+			"essential": false
+		},
+		{
+			"name": "worker",
+			"image": "liondancer/multi-worker",
+			"hostname": "worker",
+			"essential": false
+		},
+		{
+			"name": "nginx",
+			"image": "liondancer/multi-nginx",
+			"hostname": "nginx",
+			"essential": true,
+			"portMappings": [
+				{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+			]
+		},
+	]
+}
